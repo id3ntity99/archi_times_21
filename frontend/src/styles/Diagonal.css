@@ -1,0 +1,20 @@
+.Diagonal-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 800px;
+  width: 100%;
+  background-image: -webkit-linear-gradient(#afc5ff, #afc5ff);
+  color: white;
+  transform: skewY(5deg);
+  position: relative;
+  top: -100px;
+  z-index: 0;
+}
+
+.Diagonal-info {
+  position: absolute;
+  top: 50;
+  left: 50;
+  transform: skewY(-5deg);
+}
