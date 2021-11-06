@@ -3,6 +3,7 @@ const { data } = require("../test.js");
 // MiddleWare
 function getArticles(req, res, next) {
   if (!req.query.detail) {
+    //res.header("Access-Control-Allow-Origin", "*");
     return res.json(data);
   }
   next();
