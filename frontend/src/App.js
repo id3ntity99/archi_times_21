@@ -1,12 +1,15 @@
 import React from "react";
-import NavBar from "./components/navBar";
-import Diagonal from "./components/diagonal";
+import Home from "./components/Home";
+import Users from "./components/newsList";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <React.Fragment>
-      <NavBar />
-      <Diagonal />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<Users />} />
+      </Routes>
     </React.Fragment>
   );
 }
