@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const { data } = require("./test");
-const { getArticles, getDetail } = require("./controllers/news.controller");
+const { getPages, getDetail } = require("./controllers/news.controller");
 const PORT = 5000;
 
 //Static
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 // Use imported middleWares
 app.use(cors(corsOptions));
-app.use(getArticles, getDetail);
+app.use(getPages, getDetail);
 app.get("/news", (req, res) => {
   // const newArticles = data.map((article) => {
   //   const { title, desc } = article;
