@@ -7,10 +7,18 @@ function NavBar() {
       <nav className="Nav">
         <h1 className="Nav-logo">LOGO</h1>
         <ul className="Nav-items">
-          <li>Home</li>
-          <li>News</li>
-          <li>About</li>
-          <li>Policy</li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/news">News</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="/policy">Policy</a>
+          </li>
         </ul>
       </nav>
     </React.Fragment>
