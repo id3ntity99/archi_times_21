@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAllNews } from "../api/newsAPI";
 import NavBar from "./navBar";
 import Diagonal from "./diagonal";
+import "./styles/newsList.css";
 
 function NewsList() {
   const [news, setNews] = useState(null);
@@ -18,6 +19,7 @@ function NewsList() {
         setLoading(true);
         const response = await getAllNews();
         setNews(response.data); // 데이터는 response.data 안에 들어있습니다.
+        console.log(response.data);
       } catch (e) {
         setError(e);
       }
@@ -31,12 +33,18 @@ function NewsList() {
   if (error) return <div>{error}</div>;
   if (!news) return null;
   return (
-    <div>
-      {news.map((news) => {
-        if (news !== null) {
-          return <h4>{news.title}</h4>;
-        }
-      })}
+    <div className="list-frame">
+      <ol className="news-list">
+        {news.map((news) => {
+          return (
+            <li>
+              <a target="blank" href={news.link}>
+                {news.title}
+              </a>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }

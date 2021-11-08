@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Diagonal.css";
+import "./styles/Diagonal.css";
 
 function Diagonal() {
   return (
