@@ -4,7 +4,7 @@ const { data } = require("../test.js");
 function getPages(req, res, next) {
   const contentSize = 10;
   const pgSize = Math.ceil(data.length / 10);
-  const pgNumber = Number(req.query.page);
+  const pgNumber = Number(req.params.id);
   const skipSize = (pgNumber - 1) * contentSize;
   const maxIdx = contentSize * pgNumber;
   if (!req.query.detail) {
@@ -14,12 +14,16 @@ function getPages(req, res, next) {
     for (let i = skipSize; i < maxIdx; i++) {
       result.push(data[i]);
     }
-    return res.json(result);
+    return res.status(200).json(result);
   }
   next();
 }
 
 function getDetail(req, res, next) {
+  const contentSize = 10;
+  const pgNumber = Number(req.params.id);
+  const skipSize = (pgNumber - 1) * contentSize;
+  const maxIdx = contentSize * pgNumber;
   if (req.query.detail) {
     const detail = data.filter((article) => article.id === req.query.detail);
     const newDetail = detail.map((detail) => {
