@@ -18,8 +18,9 @@ function NewsList() {
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
         const response = await getAllNews();
-        setNews(response.data); // 데이터는 response.data 안에 들어있습니다.
-        console.log(response.data);
+        // Filtering null(ish) values.
+        const resData = response.data.filter((data) => data !== null);
+        setNews(resData); // 데이터는 response.data 안에 들어있습니다.
       } catch (e) {
         setError(e);
       }
@@ -37,7 +38,7 @@ function NewsList() {
       <ol className="news-list">
         {news.map((news) => {
           return (
-            <li>
+            <li key={news.id}>
               <a target="blank" href={news.link}>
                 {news.title}
               </a>

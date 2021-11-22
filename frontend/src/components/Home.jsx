@@ -6,7 +6,7 @@ function Home() {
   return (
     <React.Fragment>
       <Nav />
-      <Diagonal />
+      <Diagonal title="Welcome to Archi Times" />
     </React.Fragment>
   );
 }
